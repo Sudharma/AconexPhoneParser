@@ -1,0 +1,53 @@
+<project name="aconex-phone-parser" basedir="." default="clean-build">
+	<property name="lib.dir" value="lib" />
+	<property name="version" value="1.0" />
+	<property name="src.dir" value="src" />
+	<property name="build.dir" value="build" />
+	<property name="classes.dir" value="${build.dir}/classes" />
+	<property name="jar.dir" value="dist" />
+	<property name="main.class" value="com.aconex.phoneparser.main.PhoneNumReader" />
+
+
+	<path id="project.class.path">
+		<fileset dir="${lib.dir}" includes="**/*.jar" />
+	</path>
+
+
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<presetdef name="javac">
+		<javac includeantruntime="false" />
+	</presetdef>
+
+	<target name="compile">
+		<mkdir dir="${classes.dir}" />
+		<javac srcdir="${src.dir}" destdir="${classes.dir}">
+			<exclude name="**/*Test.java" />
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<copy todir="${jar.dir}">
+			<fileset dir="." includes="***/*.txt" />
+		</copy>
+		<mkdir dir="${jar.dir}" />
+		<jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
+			<manifest>
+				<attribute name="Main-Class" value="${main.class}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="run" depends="clean-build">
+		<exec executable="aconex-phone-parser">
+			<arg value="${arg0}" />
+			<arg value="${arg1}" />
+			<arg value="${arg2}" />
+		</exec>
+	</target>
+
+	<target name="clean-build" depends="clean,jar" />
+
+</project>
