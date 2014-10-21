@@ -1,3 +1,7 @@
+Aconex Coding Challenge
+
+------------------------------------------------------------------
+
 # Building
 
 Build using ant:
@@ -7,10 +11,10 @@ Build using ant:
 
 #Prerequisite to Run the program
   
-•	Java 1.8 
-•	If Eclipse , LUNA version.
-•	Ant version > 1.9.0
-•	Junit 4.0
+â€¢	Java 1.8 
+â€¢	If Eclipse , LUNA version.
+â€¢	Ant version > 1.9.0
+â€¢	Junit 4.0
 
 # Running
 
@@ -24,7 +28,7 @@ Or alternatively, you can run it with a number file:
 
 for help
 
-     java –jar aconex-phone-parser.jar –h or --help
+     java â€“jar aconex-phone-parser.jar â€“h or --help
 
 # Design overview
 
